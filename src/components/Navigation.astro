@@ -1,0 +1,75 @@
+---
+// Navigation component with geometric styling
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-700">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo/Name -->
+      <a href="/" class="text-2xl font-black text-white hover:text-orange-500 transition-colors">
+        PRINCE OKEKE
+      </a>
+      
+      <!-- Navigation Links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#work" class="nav-link">WORK</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="/resume.pdf" target="_blank" class="nav-link">RESUME</a>
+        <a href="#contact" class="btn-primary text-sm py-2 px-6">CONTACT</a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-orange-500 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4 border-t border-dark-700 pt-4">
+      <div class="flex flex-col space-y-4">
+        <a href="#work" class="nav-link">WORK</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="/resume.pdf" target="_blank" class="nav-link">RESUME</a>
+        <a href="#contact" class="btn-primary text-sm py-2 px-6 text-center">CONTACT</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav-link {
+    @apply text-white hover:text-orange-500 font-semibold transition-colors duration-300;
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #f97316, #ff4500);
+    transition: width 0.3s ease;
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+</style>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  });
+</script>

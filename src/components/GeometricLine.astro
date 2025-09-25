@@ -1,0 +1,20 @@
+---
+interface Props {
+  variant?: 'horizontal' | 'vertical';
+  className?: string;
+  animated?: boolean;
+}
+
+const { 
+  variant = 'horizontal', 
+  className = '', 
+  animated = true 
+} = Astro.props;
+---
+
+<div 
+  class={`geometric-line${variant === 'vertical' ? '--vertical' : ''} ${animated ? 'animate-on-scroll' : ''} ${className}`}
+  role="presentation"
+  aria-hidden="true"
+>
+</div>

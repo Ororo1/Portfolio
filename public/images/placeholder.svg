@@ -1,0 +1,7 @@
+<!-- SVG placeholder for portfolio images -->
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="800" height="500" fill="#1a1a1a"/>
+<rect x="50" y="50" width="700" height="400" fill="#111111" stroke="#f97316" stroke-width="2"/>
+<text x="400" y="250" text-anchor="middle" fill="#f97316" font-family="Arial, sans-serif" font-size="24" font-weight="bold">PROJECT PREVIEW</text>
+<text x="400" y="280" text-anchor="middle" fill="#666666" font-family="Arial, sans-serif" font-size="16">Replace with actual project image</text>
+</svg>

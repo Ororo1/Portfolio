@@ -1,11 +1,1115 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navigation from '../components/Navigation.astro';
+import GeometricLines from '../components/GeometricLines.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 ---
 
-<Layout>
-	<Welcome />
+
+<Layout title="Prince Okeke - Full Stack Developer & UI/UX Designer">
+	<!-- Navigation - Temporarily Commented Out
+	<nav class="nav" role="navigation" aria-label="Main navigation">
+		<div class="nav-container">
+			<div class="nav-logo">PRINCE OKEKE</div>
+			<ul class="nav-links" role="menubar">
+				<li role="none"><a href="#work" role="menuitem">WORK</a></li>
+				<li role="none"><a href="#skills" role="menuitem">SKILLS</a></li>
+				<li role="none"><a href="#testimonials" role="menuitem">TESTIMONIALS</a></li>
+				<li role="none"><a href="#about" role="menuitem">ABOUT</a></li>
+				<li role="none"><a href="#contact" role="menuitem">CONTACT</a></li>
+			</ul>
+		</div>
+	</nav>
+	-->
+	
+	<main id="main-content" role="main">
+		<!-- Hero Section with Geometric Design -->
+		<section class="hero-section" aria-labelledby="main-heading" style="height: 77vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: visible;">
+			<!-- Portfolio text at top right -->
+			<div style="position: absolute; top: 2rem; right: 2rem; color: #f97316; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em;">
+				PORTFOL<span id="portfolio-i">I</span>O
+			</div>
+			
+			<!-- Animated connecting line from I to E -->
+			<svg class="connecting-line" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50;">
+				<defs>
+					<linearGradient id="connectGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="0">
+						<!-- Lighter at PRINCE (start) -->
+						<stop offset="0%" stop-color="#f97316" />
+						<!-- Darker at OKEKE (end) -->
+						<stop offset="100%" stop-color="#ea580c" />
+					</linearGradient>
+				</defs>
+				<path id="line-path" stroke="url(#connectGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0"></path>
+			</svg>
+
+			<!-- Subtle decorative hero icons -->
+			<div class="hero-icons" aria-hidden="true">
+				<!-- Glasses -->
+				<svg class="icon icon-glasses" viewBox="0 0 64 32" style="--x: 18%; --y: 24%; --delay: 0ms; --scale: 0.9;">
+					<g fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="16" cy="16" r="10"/>
+						<circle cx="48" cy="16" r="10"/>
+						<path d="M26 16h12"/>
+						<path d="M6 16H2"/>
+						<path d="M62 16h-4"/>
+					</g>
+				</svg>
+
+				<!-- Music note -->
+				<svg class="icon icon-music" viewBox="0 0 32 32" style="--x: 78%; --y: 18%; --delay: 200ms; --scale: 1.0;">
+					<g fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 6v16"/>
+						<path d="M12 6l12-2v12"/>
+						<circle cx="10" cy="24" r="4"/>
+						<circle cx="22" cy="20" r="4"/>
+					</g>
+				</svg>
+
+				<!-- Art palette -->
+				<svg class="icon icon-palette" viewBox="0 0 36 36" style="--x: 12%; --y: 70%; --delay: 400ms; --scale: 1.05;">
+					<g fill="none" stroke="rgba(255,255,255,0.32)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M18 3c8.284 0 15 6.716 15 15 0 3.314-2.686 6-6 6h-2.5a2.5 2.5 0 0 0-2.5 2.5c0 2.071-1.679 3.75-3.75 3.75C8.716 30.25 3 24.533 3 17.5 3 9.216 9.716 3 18 3Z"/>
+						<circle cx="11.5" cy="14" r="1.5"/>
+						<circle cx="16" cy="10" r="1.5"/>
+						<circle cx="21" cy="12" r="1.5"/>
+						<circle cx="24" cy="17" r="1.5"/>
+					</g>
+				</svg>
+
+				<!-- Globe / Website -->
+				<svg class="icon icon-globe" viewBox="0 0 36 36" style="--x: 84%; --y: 64%; --delay: 600ms; --scale: 0.95;">
+					<g fill="none" stroke="rgba(255,255,255,0.33)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="18" cy="18" r="14"/>
+						<path d="M4 18h28M18 4c4.418 3.5 7 8.582 7 14s-2.582 10.5-7 14c-4.418-3.5-7-8.582-7-14s2.582-10.5 7-14Z"/>
+					</g>
+				</svg>
+
+				<!-- Briefcase -->
+				<svg class="icon icon-briefcase" viewBox="0 0 36 36" style="--x: 56%; --y: 78%; --delay: 300ms; --scale: 0.9;">
+					<g fill="none" stroke="rgba(249,115,22,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="5" y="12" width="26" height="18" rx="3"/>
+						<path d="M12 12v-2a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v2"/>
+						<path d="M5 18h26"/>
+					</g>
+				</svg>
+
+				<!-- Code brackets -->
+				<svg class="icon icon-code" viewBox="0 0 32 32" style="--x: 28%; --y: 12%; --delay: 150ms; --scale: 0.95;">
+					<g fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 8L6 16l6 8"/>
+						<path d="M20 8l6 8-6 8"/>
+					</g>
+				</svg>
+
+				<!-- Camera -->
+				<svg class="icon icon-camera" viewBox="0 0 36 36" style="--x: 66%; --y: 28%; --delay: 260ms; --scale: 1.0;">
+					<g fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="5" y="10" width="26" height="18" rx="3"/>
+						<path d="M12 10l2-3h8l2 3"/>
+						<circle cx="18" cy="19" r="5"/>
+					</g>
+				</svg>
+
+				<!-- Pen tool -->
+				<svg class="icon icon-pen" viewBox="0 0 36 36" style="--x: 30%; --y: 82%; --delay: 420ms; --scale: 0.95;">
+					<g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M18 3l6 10-6 6-10-6 10-10Z"/>
+						<path d="M8 13l-3 12 12-3"/>
+						<circle cx="18" cy="13" r="1.5"/>
+					</g>
+				</svg>
+
+				<!-- Monitor -->
+				<svg class="icon icon-monitor" viewBox="0 0 36 36" style="--x: 72%; --y: 72%; --delay: 500ms; --scale: 1.0;">
+					<g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="5" y="8" width="26" height="18" rx="3"/>
+						<path d="M14 30h8"/>
+						<path d="M18 26v4"/>
+					</g>
+				</svg>
+
+				<!-- Paper plane -->
+				<svg class="icon icon-plane" viewBox="0 0 36 36" style="--x: 40%; --y: 18%; --delay: 80ms; --scale: 0.9;">
+					<g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M4 18l28-12-10 28-5-10-13-6Z"/>
+						<path d="M22 14l-7 7"/>
+					</g>
+				</svg>
+
+				<!-- Headphones -->
+				<svg class="icon icon-headphones hide-sm" viewBox="0 0 36 36" style="--x: 88%; --y: 40%; --delay: 700ms; --scale: 1.0;">
+					<g fill="none" stroke="rgba(249,115,22,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M6 20a12 12 0 0 1 24 0"/>
+						<rect x="4" y="18" width="6" height="10" rx="2"/>
+						<rect x="26" y="18" width="6" height="10" rx="2"/>
+					</g>
+				</svg>
+
+				<!-- Star -->
+				<svg class="icon icon-star hide-sm" viewBox="0 0 36 36" style="--x: 8%; --y: 44%; --delay: 340ms; --scale: 0.85;">
+					<g fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M18 4l3.2 6.5 7.2 1-5.2 5 1.3 7.5L18 20.8 9.5 24.9 10.8 17.4 5.6 11.5l7.2-1L18 4Z"/>
+					</g>
+				</svg>
+			</div>
+			
+			<div style="text-align: center; max-width: 1200px; margin: 0 auto; padding-top: 16px;">
+				<!-- Main Title with geometric styling -->
+				<div style="position: relative; margin-bottom: 2rem;">
+					<h1 id="main-heading" class="hero-text fade-in-up">
+						PRINCE<br>
+						<span class="accent-text">OKEK<span id="okeke-e">E</span></span>
+					</h1>
+					
+					<!-- Geometric line element -->
+					<div class="geometric-line-element" aria-hidden="true"></div>
+				</div>
+				
+				<!-- Subtitle with staggered animation -->
+				<div style="margin-bottom: 0;">
+					<p class="subtitle fade-in-up" style="animation-delay: 0.2s;">Designer</p>
+					<p class="subtitle fade-in-up" style="animation-delay: 0.4s;">Developer</p>
+					<p class="subtitle accent-text fade-in-up" style="animation-delay: 0.6s; font-weight: 900;">Project Manager</p>
+				</div>
+			</div>
+
+			<!-- About Me section at bottom left -->
+			<div class="hero-about fade-in-up" style="animation-delay: 0.8s;">
+				<p class="about-quote">"I see design as an art first, and I bring that into development and management to deliver strategies that are functional and appealing"</p>
+				<a href="https://wa.me/2349012303810" target="_blank" rel="noopener noreferrer" class="hero-contact-btn">
+					Contact Me
+				</a>
+			</div>
+
+		</section>
+
+		<!-- Featured Work Section -->
+		<section id="work" class="section">
+			<div style="text-align: center; margin-bottom: 0;"></div>
+
+			<!-- Basic 3-card responsive grid inside a white rounded container -->
+            <div class="featured-wrapper fade-in-up" style="animation-delay: 0.4s;">
+				<div class="notch-text"><span class="word">FEATURED</span><span class="word accent-text">WORK</span></div>
+				<div class="featured-grid">
+                    <!-- Card 1 -->
+					<article class="featured-card">
+						<div class="card-visual" style="--bg: url('/images/primestone.jpg');" role="img" aria-label="Primestone project visual">
+							<div class="card-desc">
+								<div class="desc-title">PRIMESTONE</div>
+								<div class="desc-subtitle">LEGAL PRACTITIONERS</div>
+							</div>
+                            <div class="card-overlay">
+                                <a class="cta-fab" href="https://primeston-lp.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Primestone site">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM8.09 8.72c.78-.02 1.44.25 2.54.25s1.76-.27 2.54-.25c1.13.02 2.13.05 2.85.7.81.74 1.84 2.25 1.84 3.98 0 2.34-1.99 6.6-6.6 6.6s-6.6-4.26-6.6-6.6c0-1.73 1.03-3.24 1.84-3.98.72-.65 1.72-.68 2.85-.7ZM12 4.2c.31.69.43 1.48.43 2.3 0 .82-.12 1.61-.43 2.3-.31-.69-.43-1.48-.43-2.3 0-.82.12-1.61.43-2.3Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+					<article class="featured-card">
+						<div class="card-visual" style="--bg: url('/images/jaceshotit.jpg');" role="img" aria-label="Jaceshotit visual">
+							<div class="card-desc">
+								<div class="desc-title">JACESHOTIT</div>
+								<div class="desc-subtitle">PHOTOGRAPHY</div>
+							</div>
+                            <div class="card-overlay">
+                                <a class="cta-fab" href="https://ororo1.github.io/jaceshotit/" target="_blank" rel="noopener noreferrer" aria-label="Open Jaceshotit site">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM8.09 8.72c.78-.02 1.44.25 2.54.25s1.76-.27 2.54-.25c1.13.02 2.13.05 2.85.7.81.74 1.84 2.25 1.84 3.98 0 2.34-1.99 6.6-6.6 6.6s-6.6-4.26-6.6-6.6c0-1.73 1.03-3.24 1.84-3.98.72-.65 1.72-.68 2.85-.7ZM12 4.2c.31.69.43 1.48.43 2.3 0 .82-.12 1.61-.43 2.3-.31-.69-.43-1.48-.43-2.3 0-.82.12-1.61.43-2.3Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+					<article class="featured-card">
+						<div class="card-visual" style="--bg: url('/images/fruitbearing.jpg');" role="img" aria-label="Fruitbearing visual">
+							<div class="card-desc">
+								<div class="desc-title">FRUITBEARING</div>
+								<div class="desc-subtitle">MEDICALS</div>
+							</div>
+                            <div class="card-overlay">
+                                <a class="cta-fab" href="https://fruitbearingmedicals.store/" target="_blank" rel="noopener noreferrer" aria-label="Open Fruitbearing Medicals site">
+                                    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+                                        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2ZM8.09 8.72c.78-.02 1.44.25 2.54.25s1.76-.27 2.54-.25c1.13.02 2.13.05 2.85.7.81.74 1.84 2.25 1.84 3.98 0 2.34-1.99 6.6-6.6 6.6s-6.6-4.26-6.6-6.6c0-1.73 1.03-3.24 1.84-3.98.72-.65 1.72-.68 2.85-.7ZM12 4.2c.31.69.43 1.48.43 2.3 0 .82-.12 1.61-.43 2.3-.31-.69-.43-1.48-.43-2.3 0-.82.12-1.61.43-2.3Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+		<!-- Skills Section -->
+		<section id="skills" class="section">
+			<h2 class="section-title fade-in-up" style="margin-bottom: 2.5rem;">
+				SOFTWARE <span class="accent-text">SKILLS</span>
+			</h2>
+			<div class="skills-grid-icons">
+				<!-- Graphic Design -->
+				<div class="skill-card fade-in-up" style="animation-delay: 0.15s;">
+					<h3 class="skill-card-title">Graphic Design</h3>
+					<div class="tool-icons">
+						<div class="tool">
+							<div class="tool-badge" aria-label="Canva">Ca</div>
+							<div class="tool-label">Canva</div>
+						</div>
+						<div class="tool">
+							<div class="tool-badge" aria-label="Photoshop">Ps</div>
+							<div class="tool-label">Photoshop</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Web Design & Development -->
+				<div class="skill-card fade-in-up" style="animation-delay: 0.3s;">
+					<h3 class="skill-card-title">Web Design & Development</h3>
+					<div class="tool-icons">
+						<div class="tool"><div class="tool-badge" aria-label="React">Re</div><div class="tool-label">React</div></div>
+						<div class="tool"><div class="tool-badge" aria-label="Tailwind CSS">Tw</div><div class="tool-label">Tailwind CSS</div></div>
+						<div class="tool"><div class="tool-badge" aria-label="TypeScript">Ts</div><div class="tool-label">TypeScript</div></div>
+						<div class="tool"><div class="tool-badge" aria-label="Astro">A</div><div class="tool-label">Astro</div></div>
+						<div class="tool"><div class="tool-badge" aria-label="Cursor">C</div><div class="tool-label">Cursor</div></div>
+					</div>
+				</div>
+
+				<!-- Project Management -->
+				<div class="skill-card fade-in-up" style="animation-delay: 0.45s;">
+					<h3 class="skill-card-title">Project Management</h3>
+					<div class="tool-icons">
+						<div class="tool"><div class="tool-badge" aria-label="Asana">As</div><div class="tool-label">Asana</div></div>
+						<div class="tool"><div class="tool-badge" aria-label="Slack">Sl</div><div class="tool-label">Slack</div></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio Gallery Section (after Skills section) -->
+		<section id="gallery" class="section gallery-section">
+			<h2 class="section-title fade-in-up" style="text-align: center; font-weight: 900; margin-bottom: 1rem;">PORTFOLIO <span class="accent-text">GALLERY</span></h2>
+			<ul class="gallery-grid fade-in-up" style="animation-delay: 0.15s;">
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (14).jpg" alt="Portfolio Work 14" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (6).jpg" alt="Portfolio Work 6" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (7).jpg" alt="Portfolio Work 7" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (8).jpg" alt="Portfolio Work 8" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (9).jpg" alt="Portfolio Work 9" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (10).jpg" alt="Portfolio Work 10" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (11).jpg" alt="Portfolio Work 11" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (12).jpg" alt="Portfolio Work 12" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (13).jpg" alt="Portfolio Work 13" loading="lazy" /></div></li>
+				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (1).jpg" alt="Portfolio Work 1" loading="lazy" /></div></li>
+			</ul>
+		</section>
+
+		<!-- Hero Footer Section -->
+		<footer class="hero-footer" role="contentinfo">
+			<div class="hero-footer-content">
+				<h2 class="hero-footer-text fade-in-up">
+					<span class="curved-text">
+						<span class="curved-word" style="--offset: -0.15em;">Let's</span>
+						<span class="curved-word" style="--offset: -0.08em;">Create</span>
+						<span class="curved-word" style="--offset: 0em;">Something</span>
+					</span>
+					<span class="accent-text">Exceptional</span>
+				</h2>
+				<p class="hero-footer-subtitle fade-in-up" style="animation-delay: 0.2s;">Get in Touch</p>
+				<div class="hero-footer-contact fade-in-up" style="animation-delay: 0.4s;">
+					<a href="mailto:prince.okekepc@gmail.com" class="contact-icon" aria-label="Email Prince Okeke">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+						</svg>
+					</a>
+					<a href="https://wa.me/2349012303810" target="_blank" rel="noopener noreferrer" class="contact-icon" aria-label="WhatsApp Prince Okeke">
+						<svg viewBox="0 0 24 24" fill="currentColor">
+							<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+						</svg>
+					</a>
+						<a href="https://www.behance.net/okekeprince1" target="_blank" rel="noopener noreferrer" class="contact-icon" aria-label="Behance Profile">
+							<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M4 4h7.5c2.3 0 3.9 1.31 3.9 3.28 0 1.4-.78 2.36-1.92 2.77 1.54.42 2.51 1.56 2.51 3.34 0 2.25-1.8 3.61-4.41 3.61H4V4Zm3.06 4.86h3.72c.99 0 1.62-.54 1.62-1.38 0-.86-.63-1.34-1.62-1.34H7.06v2.72Zm0 6.32h3.93c1.2 0 1.94-.62 1.94-1.6 0-.95-.74-1.57-1.94-1.57H7.06v3.17ZM16.6 9.38h5.08v1.33H16.6V9.38Zm.02 2.27c2.13 0 3.41 1.3 3.41 3.13v.32h-4.84c.13.86.87 1.53 2.07 1.53 1 0 1.73-.31 2.25-.79l.88.95c-.74.78-1.83 1.26-3.26 1.26-2.2 0-3.73-1.36-3.73-3.5 0-2.16 1.55-3.9 3.22-3.9Z"/>
+							</svg>
+						</a>
+				</div>
+			</div>
+		</footer>
+
+	</main>
+
+	<!-- Lightbox Overlay for Gallery Carousel -->
+	<div class="lightbox-overlay" id="lightbox">
+		<button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8592;</button>
+		<img class="lightbox-img" id="lightboxImg" src="" alt="Gallery Image">
+		<button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next">&#8594;</button>
+		<button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+	</div>
 </Layout>
+
+<!-- Inline script to draw animated line from 'I' in PORTFOLIO to 'E' in OKEKE -->
+<script is:inline>
+  const debounce = (fn, delay = 150) => { let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), delay); }; };
+
+  function drawPortfolioToE() {
+    const section = document.querySelector('section.hero-section');
+    const iEl = document.getElementById('portfolio-i');
+    const eEl = document.getElementById('okeke-e');
+    const path = document.getElementById('line-path');
+    const grad = document.getElementById('connectGradient');
+    if (!section || !iEl || !eEl || !path) return;
+
+    const sec = section.getBoundingClientRect();
+    const iRect = iEl.getBoundingClientRect();
+    const eRect = eEl.getBoundingClientRect();
+
+    const startX = (iRect.right) - sec.left;
+    const startY = (iRect.bottom) - sec.top;
+    const endX = (eRect.right) - sec.left;
+    const endY = (eRect.top + eRect.height / 2) - sec.top;
+
+    const radius = Math.min(56, Math.max(20, Math.abs(startY - endY) * 0.22));
+    const d = `M ${startX} ${startY} L ${startX} ${endY - radius} Q ${startX} ${endY} ${startX - radius} ${endY} L ${endX} ${endY}`;
+    path.setAttribute('d', d);
+	path.setAttribute('stroke-width', '2');
+
+    // Align gradient direction from PRINCE (start) to OKEKE (end)
+    if (grad) {
+      grad.setAttribute('x1', String(startX));
+      grad.setAttribute('y1', String(startY));
+      grad.setAttribute('x2', String(endX));
+      grad.setAttribute('y2', String(endY));
+    }
+
+    try {
+      const total = (path).getTotalLength();
+      path.style.transition = 'none';
+      path.style.opacity = '1';
+      path.style.strokeDasharray = `${total} ${total}`;
+      path.style.strokeDashoffset = String(total);
+      path.getBoundingClientRect();
+      path.style.transition = 'stroke-dashoffset 2000ms ease 600ms, opacity 300ms ease';
+      requestAnimationFrame(() => { path.style.strokeDashoffset = '0'; });
+    } catch (e) {
+      path.style.opacity = '1';
+      path.style.strokeDasharray = 'none';
+      path.style.strokeDashoffset = '0';
+    }
+  }
+
+  // Fade overlays off when cards enter viewport
+  const observeCards = () => {
+    const cards = document.querySelectorAll('.featured-card');
+    if (!cards.length || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+    cards.forEach((el) => io.observe(el));
+  };
+
+	// Triggers for I→E animation only
+	const runAnim = () => { drawPortfolioToE(); };
+	requestAnimationFrame(runAnim);
+	setTimeout(runAnim, 600);
+	window.addEventListener('load', () => setTimeout(runAnim, 150));
+	window.addEventListener('resize', debounce(runAnim, 150));
+
+  // Trigger overlay observer after load
+  window.addEventListener('load', () => observeCards());
+
+	// Gallery lightbox carousel functionality
+	function initGalleryCarousel() {
+		console.log('Initializing gallery carousel...');
+		
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.getElementById('lightboxImg');
+		const lightboxPrev = document.getElementById('lightboxPrev');
+		const lightboxNext = document.getElementById('lightboxNext');
+		const lightboxClose = document.getElementById('lightboxClose');
+		
+		console.log('Lightbox elements:', { lightbox, lightboxImg, lightboxPrev, lightboxNext, lightboxClose });
+		
+		if (!lightbox || !lightboxImg || !lightboxPrev || !lightboxNext || !lightboxClose) {
+			console.error('Lightbox elements not found!');
+			return;
+		}
+
+		let galleryImages = Array.from(document.querySelectorAll('.gallery-grid img'));
+		let currentIndex = 0;
+		
+		console.log('Found gallery images:', galleryImages.length);
+
+		galleryImages.forEach((img, idx) => {
+			img.addEventListener('click', () => {
+				console.log('Image clicked:', idx);
+				openLightbox(idx);
+			});
+			img.style.cursor = 'pointer'; // Ensure cursor shows it's clickable
+		});
+
+		function openLightbox(idx) {
+			console.log('Opening lightbox for image:', idx);
+			lightbox.classList.add('active');
+			lightboxImg.src = galleryImages[idx].src;
+			currentIndex = idx;
+			document.body.style.overflow = 'hidden';
+		}
+		
+		function closeLightbox() {
+			console.log('Closing lightbox');
+			lightbox.classList.remove('active');
+			lightboxImg.src = '';
+			document.body.style.overflow = '';
+		}
+		
+		function showPrev() {
+			currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+			lightboxImg.src = galleryImages[currentIndex].src;
+			console.log('Previous image:', currentIndex);
+		}
+		
+		function showNext() {
+			currentIndex = (currentIndex + 1) % galleryImages.length;
+			lightboxImg.src = galleryImages[currentIndex].src;
+			console.log('Next image:', currentIndex);
+		}
+
+		// Event listeners
+		lightboxPrev.addEventListener('click', showPrev);
+		lightboxNext.addEventListener('click', showNext);
+		lightboxClose.addEventListener('click', function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+			closeLightbox();
+		});
+		lightbox.addEventListener('click', function(e) {
+			if (e.target === lightbox) closeLightbox();
+		});
+
+		// Keyboard navigation
+		document.addEventListener('keydown', function(e) {
+			if (!lightbox.classList.contains('active')) return;
+			if (e.key === 'ArrowLeft') showPrev();
+			if (e.key === 'ArrowRight') showNext();
+			if (e.key === 'Escape') closeLightbox();
+		});
+
+		// Touch/swipe navigation
+		let startX = null;
+		lightboxImg.addEventListener('touchstart', function(e) {
+			startX = e.touches[0].clientX;
+		});
+		lightboxImg.addEventListener('touchend', function(e) {
+			if (startX === null) return;
+			let endX = e.changedTouches[0].clientX;
+			if (endX - startX > 40) showPrev();
+			else if (startX - endX > 40) showNext();
+			startX = null;
+		});
+
+		console.log('Gallery carousel initialized successfully!');
+	}
+
+	// Initialize gallery carousel after DOM loads
+	window.addEventListener('load', initGalleryCarousel);
+
+	// CSS columns handle gallery masonry automatically - no JavaScript needed
+</script>
+
+	<!-- Minimal styles for the basic featured cards section -->
+	<style>
+        /* White rounded container */
+                .featured-wrapper {
+            background: #ffffff;
+            --panel-bg: #ffffff; /* used by image notch to blend perfectly */
+			border-radius: 16px;
+			padding: 2rem;
+			max-width: 1200px;
+					margin: 0 auto; /* no negative margin so notch stays in hero */
+		}
+
+		/* Responsive grid: 1 column on small, 3 on large */
+		.featured-grid {
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 1.25rem;
+		}
+
+		@media (min-width: 900px) {
+			.featured-grid { grid-template-columns: repeat(3, 1fr); }
+		}
+
+        /* Basic card */
+		.featured-card {
+            background: radial-gradient(120% 120% at 10% 0%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 60%, rgba(0,0,0,0.0) 100%), #0b0b0b;
+            border: none; /* remove border so cutout is subtle */
+            border-radius: 28px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        }
+
+		/* Visual area (image drawn on ::before so overlay isn't clipped) */
+		.card-visual {
+			height: 24rem;
+			position: relative;
+			overflow: visible; /* allow CTA to sit in the cutout */
+			border-radius: 28px;
+		}
+        .card-visual::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background-image: var(--bg, none);
+			background-size: cover;
+			background-position: center;
+			border-radius: 28px;
+			z-index: 1; /* base image */
+			/* Bottom-right circular bite using clip-path path() */
+			-webkit-clip-path: path('M 0 0 H 100% V 100% H calc(100% - 64px) A 32 32 0 0 0 100% calc(100% - 64px) V 0 Z');
+			clip-path: path('M 0 0 H 100% V 100% H calc(100% - 64px) A 32 32 0 0 0 100% calc(100% - 64px) V 0 Z');
+			border-bottom-right-radius: 24px;
+        }
+
+		/* Slight dark overlay to make image a bit darker */
+		.card-visual::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			z-index: 1; /* above image, below text/cta (which use z-index 2/3) */
+			background: rgba(0, 0, 0, 0.25);
+			border-radius: 28px;
+			-webkit-clip-path: path('M 0 0 H 100% V 100% H calc(100% - 64px) A 32 32 0 0 0 100% calc(100% - 64px) V 0 Z');
+			clip-path: path('M 0 0 H 100% V 100% H calc(100% - 64px) A 32 32 0 0 0 100% calc(100% - 64px) V 0 Z');
+			pointer-events: none;
+		}
+
+	@media (min-width: 900px) { .card-visual { height: 28rem; } }
+
+	/* Overlay container (button only) */
+	.card-overlay { position: absolute; inset: 0; padding: 12px; pointer-events: none; z-index: 2; }
+
+		/* Circular button in the bottom-right cutout */
+        .cta-fab { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; border-radius: 999px; background: #f97316; color: #fff; box-shadow: 0 10px 30px rgba(249,115,22,0.45), 0 0 24px rgba(249,115,22,0.55); border: 0; outline: none; transition: transform 180ms ease, background 180ms ease, box-shadow 220ms ease; position: absolute; right: 16px; bottom: 16px; z-index: 3; }
+        .cta-fab:hover { transform: translateY(-2px) scale(1.06); background: #fb7d28; box-shadow: 0 16px 36px rgba(249,115,22,0.6), 0 0 36px rgba(249,115,22,0.75); }
+
+				/* New top description bar inside image */
+				.card-desc {
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					display: flex;
+					flex-direction: column;
+					gap: 2px;
+					padding: 18px 18px 16px 18px;
+					min-height: 4.5rem;
+					color: #fff;
+					z-index: 2; /* above image, below button */
+					background: rgba(0, 0, 0, 0.5);
+					-webkit-backdrop-filter: saturate(120%) blur(2px);
+					backdrop-filter: saturate(120%) blur(2px);
+					border-top-left-radius: 28px;
+					border-top-right-radius: 28px;
+				}
+				.desc-title { font-weight: 900; font-size: 1.35rem; letter-spacing: 0.06em; line-height: 1.05; }
+				.desc-subtitle { font-weight: 700; font-size: 0.85rem; letter-spacing: 0.22em; opacity: 0.95; line-height: 1.1; }
+
+				@media (min-width: 900px) {
+					.card-desc { min-height: 4.75rem; padding: 20px 20px 18px 20px; }
+					.desc-title { font-size: 1.45rem; }
+					.desc-subtitle { font-size: 0.9rem; }
+				}
+
+						/* Info bar removed per final design */
+
+			/* Half-pill notch belongs to featured section and protrudes upward */
+			.hero-section { position: relative; }
+
+			/* Half-pill notch connected to featured section */
+			.featured-wrapper { position: relative; }
+			.featured-wrapper::before {
+				content: '';
+				position: absolute;
+				top: -22px; /* slight raise so notch peeks into hero */
+				left: 50%;
+				transform: translateX(-50%);
+				width: 180px; /* keep width */
+				height: 28px; /* reduced notch height */
+				background: #fff; /* same as featured background to look connected */
+				border-top-left-radius: 9999px;
+				border-top-right-radius: 9999px;
+				border-bottom-left-radius: 0;
+				border-bottom-right-radius: 0;
+				z-index: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.notch-text {
+				position: absolute;
+				top: -22px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 180px;
+				height: 28px;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.35em;
+				font-weight: 800;
+				font-size: 0.75rem;
+				letter-spacing: 0.12em;
+				color: #111;
+				pointer-events: none;
+			}
+			.notch-text .accent-text {
+				color: #f97316;
+			}
+
+			/* Remove the old featured header since it's now in the notch */
+
+      /* Ensure the work section starts flush (no black gap) */
+      section#work {
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      /* Hero About Me section */
+      .hero-about {
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        max-width: 400px;
+        z-index: 10;
+      }
+
+      .about-quote {
+        color: #fff;
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1rem;
+        text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        font-weight: 400;
+      }
+
+      .hero-contact-btn {
+        display: inline-block;
+        background: #fff;
+        color: #f97316;
+        padding: 8px 16px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.8rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      }
+
+      .hero-contact-btn:hover {
+        background: #f8f9fa;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      }
+
+			/* Hero decorative icons */
+					.hero-icons {
+				position: absolute;
+				inset: 0;
+				pointer-events: none;
+						z-index: 20; /* above section background, below line/text */
+			}
+			.icon {
+				position: absolute;
+				top: var(--y);
+				left: var(--x);
+						width: calc(40px * var(--scale, 1));
+				height: auto;
+						opacity: 0.68;
+				transform-origin: center;
+				animation: floatY var(--dur, 6s) ease-in-out infinite;
+				animation-delay: var(--delay, 0ms);
+						filter: drop-shadow(0 3px 10px rgba(0,0,0,0.35));
+			}
+					.icon-music { --dur: 7s; }
+					.icon-globe { --dur: 8s; animation-name: floatYRotate; }
+			.icon-palette { --dur: 7.5s; animation-name: floatYRotate; }
+			.icon-briefcase { --dur: 6.5s; }
+
+			@keyframes floatY {
+				0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+				50% { transform: translate(-50%, -50%) translateY(-8px); }
+			}
+			@keyframes floatYRotate {
+				0%, 100% { transform: translate(-50%, -50%) translateY(0) rotate(0deg); }
+				50% { transform: translate(-50%, -50%) translateY(-8px) rotate(3deg); }
+			}
+
+					@media (max-width: 768px) {
+						.icon { opacity: 0.5; width: calc(32px * var(--scale, 1)); }
+				.icon-glasses { display: none; }
+								.icon.hide-sm { display: none; }
+			}
+
+      @media (max-width: 768px) {
+        .hero-about {
+          bottom: 1rem;
+          left: 1rem;
+          right: 1rem;
+          max-width: none;
+        }
+        
+        .about-quote {
+          font-size: 0.9rem;
+        }
+      }
+
+					/* Skills grid with orange icon badges */
+					.skills-grid-icons {
+						display: grid;
+						grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+						justify-content: center; /* center cards; no full width on mobile */
+						gap: 1.25rem;
+						max-width: 1200px;
+						margin: 0 auto;
+					}
+					.skill-card {
+						background: rgba(255,255,255,0.04);
+						border: 1px solid rgba(255,255,255,0.08);
+						border-radius: 16px;
+						padding: 1rem 1rem 1.25rem 1rem;
+						text-align: center;
+					}
+			.skill-card-title {
+				color: #fff;
+				font-weight: 800;
+				font-size: 1rem;
+				letter-spacing: 0.06em;
+				margin: 0 0 0.75rem 0;
+			}
+					.tool-icons {
+						display: flex;
+						flex-wrap: wrap;
+						justify-content: center;
+						gap: 14px 16px;
+					}
+			.tool {
+						display: inline-flex;
+						flex-direction: column;
+						align-items: center;
+						gap: 6px;
+						padding: 8px 10px;
+						background: rgba(255,255,255,0.03);
+						border: 1px solid rgba(255,255,255,0.06);
+						border-radius: 12px;
+			}
+			.tool-badge {
+						width: 34px;
+						height: 34px;
+				border-radius: 50%;
+						background: linear-gradient(180deg, #fb923c, #f97316);
+						border: 1px solid rgba(249,115,22,0.7);
+						color: #fff;
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 800;
+						font-size: 0.85rem;
+				letter-spacing: 0.02em;
+						box-shadow: 0 8px 20px rgba(249,115,22,0.25), 0 0 16px rgba(249,115,22,0.28);
+			}
+					.tool-label {
+						color: rgba(255,255,255,0.85);
+						font-size: 0.8rem;
+						font-weight: 400; /* regular, not bold */
+						letter-spacing: 0.04em;
+					}
+
+					/* Center and bold the Software Skills heading */
+					section#skills .section-title {
+						text-align: center;
+						font-weight: 900;
+					}
+
+					/* Distinguish the Software Skills section */
+					section#skills {
+						position: relative;
+						background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+						border-top: 1px solid rgba(255,255,255,0.06);
+						border-bottom: 1px solid rgba(255,255,255,0.06);
+						padding-top: 2.5rem;
+						padding-bottom: 2.5rem;
+					}
+					section#skills::before {
+						content: '';
+						position: absolute;
+						top: 0;
+						left: 50%;
+						transform: translateX(-50%);
+						width: min(92%, 1200px);
+						height: 100%;
+						background: radial-gradient(120% 140% at 50% -40%, rgba(249,115,22,0.08) 0%, rgba(249,115,22,0.02) 55%, transparent 70%);
+						pointer-events: none;
+						z-index: 0;
+					}
+					section#skills > * { position: relative; z-index: 1; }
+
+				/* Portfolio Gallery - CSS Columns Masonry */
+				.gallery-section { padding-top: 2rem; }
+				.gallery-grid {
+					list-style: none;
+					margin: 0 auto;
+					padding: 0;
+					column-count: 4;
+					column-gap: 0;
+					width: 96vw;
+					max-width: 1200px;
+				}
+				@media (max-width: 1200px) {
+					.gallery-grid { column-count: 3; }
+				}
+				@media (max-width: 900px) {
+					.gallery-grid { column-count: 2; }
+				}
+				@media (max-width: 600px) {
+					.gallery-grid { column-count: 2; width: 98vw; }
+				}
+				.gallery-card { 
+					display: block;
+					break-inside: avoid;
+					margin-bottom: 0;
+				}
+				.gallery-link { display: block; position: relative; isolation: isolate; }
+				.gallery-link img { 
+					display: block;
+					width: 100%; 
+					height: auto; 
+					padding: 0.6vw;
+					border-radius: 16px;
+					box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+					background: #0b0b0b;
+					box-sizing: border-box;
+					filter: saturate(105%) contrast(102%); 
+					transition: transform 300ms ease, filter 300ms ease, box-shadow 300ms ease;
+					cursor: pointer;
+				}
+				.gallery-link::after {
+					content: '';
+					position: absolute; 
+					inset: 0.6vw; 
+					z-index: 1; 
+					pointer-events: none;
+					background: radial-gradient(80% 60% at 80% 80%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 70%, transparent 100%);
+					mix-blend-mode: multiply;
+					opacity: 0.6; 
+					transition: opacity 300ms ease;
+					border-radius: 16px;
+				}
+				.gallery-card:hover .gallery-link img { 
+					transform: scale(1.02); 
+					filter: saturate(110%) contrast(105%); 
+					box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+				}
+				.gallery-card:hover .gallery-link::after { opacity: 0.75; }
+
+				/* Lightbox Carousel Styles */
+				.lightbox-overlay {
+					position: fixed;
+					top: 0; left: 0; right: 0; bottom: 0;
+					background: rgba(0,0,0,0.92);
+					z-index: 2000;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					visibility: hidden;
+					opacity: 0;
+					transition: opacity 0.2s ease;
+				}
+				.lightbox-overlay.active {
+					visibility: visible;
+					opacity: 1;
+				}
+				.lightbox-img {
+					max-width: 96vw;
+					max-height: 92vh;
+					border-radius: 16px;
+					box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+					background: #0b0b0b;
+					object-fit: contain;
+				}
+				.lightbox-nav {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					font-size: 2.5rem;
+					color: #fff;
+					background: rgba(0,0,0,0.3);
+					border: none;
+					border-radius: 50%;
+					width: 2.2em;
+					height: 2.2em;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					z-index: 2100;
+					transition: background 0.2s ease, transform 0.2s ease;
+				}
+				.lightbox-nav:hover { 
+					background: rgba(249,115,22,0.4); 
+					transform: translateY(-50%) scale(1.05);
+				}
+				.lightbox-prev { left: 2vw; }
+				.lightbox-next { right: 2vw; }
+				.lightbox-close {
+					position: absolute;
+					top: 2vw;
+					right: 2vw;
+					font-size: 2.2rem;
+					color: #fff;
+					background: rgba(0,0,0,0.3);
+					border: none;
+					border-radius: 50%;
+					width: 2em;
+					height: 2em;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					z-index: 2100;
+					transition: background 0.2s ease, transform 0.2s ease;
+				}
+				.lightbox-close:hover { 
+					background: rgba(220,38,38,0.4); 
+					transform: scale(1.05);
+				}
+				@media (max-width: 600px) {
+					.lightbox-img { max-width: 99vw; max-height: 80vh; border-radius: 12px; }
+					.lightbox-prev, .lightbox-next { font-size: 2rem; width: 1.7em; height: 1.7em; }
+					.lightbox-close { font-size: 1.7rem; width: 1.5em; height: 1.5em; }
+				}
+
+				/* Hero Footer */
+				.hero-footer {
+					background: #000;
+					min-height: 50vh;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 4rem 2rem;
+					position: relative;
+					overflow: hidden;
+				}
+				.hero-footer-content {
+					text-align: center;
+					max-width: 1200px;
+					width: 100%;
+				}
+				.hero-footer-text {
+					font-size: clamp(2rem, 6vw, 4.5rem);
+					font-weight: 900;
+					line-height: 1.1;
+					letter-spacing: -0.02em;
+					color: #fff;
+					margin: 0 0 1rem 0;
+					text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}
+				.curved-text {
+					display: block;
+					position: relative;
+					margin-bottom: 0.2em;
+				}
+				.curved-word {
+					display: inline-block;
+					transform: translateY(var(--offset, 0)) rotate(calc(var(--offset, 0) * -8));
+					margin: 0 0.15em;
+					transition: transform 0.3s ease;
+				}
+				.curved-word:nth-child(1) { transform: translateY(-0.15em) rotate(2deg); }
+				.curved-word:nth-child(2) { transform: translateY(-0.08em) rotate(0deg); }
+				.curved-word:nth-child(3) { transform: translateY(0em) rotate(-2deg); }
+				.hero-footer-subtitle {
+					font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+					font-weight: 600;
+					color: rgba(255,255,255,0.8);
+					margin: 0 0 2rem 0;
+					letter-spacing: 0.05em;
+				}
+				.hero-footer-contact {
+					display: flex;
+					gap: 2rem;
+					justify-content: center;
+					align-items: center;
+				}
+				.contact-icon {
+					display: inline-flex;
+					align-items: center;
+					justify-content: center;
+					width: 60px;
+					height: 60px;
+					background: rgba(255,255,255,0.1);
+					border: 2px solid rgba(255,255,255,0.2);
+					border-radius: 50%;
+					color: #fff;
+					text-decoration: none;
+					transition: all 0.3s ease;
+					backdrop-filter: blur(10px);
+				}
+				.contact-icon:hover {
+					background: #f97316;
+					border-color: #f97316;
+					transform: translateY(-3px) scale(1.05);
+					box-shadow: 0 10px 25px rgba(249,115,22,0.3);
+				}
+				.contact-icon svg {
+					width: 28px;
+					height: 28px;
+				}
+				@media (max-width: 768px) {
+					.hero-footer {
+						min-height: 45vh;
+						padding: 3rem 1.5rem;
+					}
+					.hero-footer-text {
+						font-size: clamp(1.5rem, 8vw, 3rem);
+						margin-bottom: 0.75rem;
+					}
+					.hero-footer-subtitle {
+						font-size: clamp(1rem, 3vw, 1.25rem);
+						margin-bottom: 1.5rem;
+					}
+					.hero-footer-contact {
+						gap: 1.5rem;
+					}
+					.contact-icon {
+						width: 50px;
+						height: 50px;
+					}
+					.contact-icon svg {
+						width: 24px;
+						height: 24px;
+					}
+				}
+				.gallery-note { margin: 0.75rem auto 0; max-width: 1200px; color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+	</style>

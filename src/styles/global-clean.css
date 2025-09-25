@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/* Custom Font Face - VAGRoundedStd */
+@font-face {
+  font-family: 'VAGRoundedStd';
+  src: url('/fonts/VAGRoundedStd-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles with geometric inspiration */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: #000; /* pure black background */
+    color: white;
+    font-family: 'VAGRoundedStd', system-ui, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #f97316;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #fb923c;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .hero-text {
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 900;
+    color: white;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  
+  .accent-text {
+    background: linear-gradient(45deg, #f97316, #ff4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .btn-primary {
+    padding: 1rem 2rem;
+    background: #f97316;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-primary:hover {
+    background: #fb923c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+  }
+  
+  .btn-outline {
+    padding: 1rem 2rem;
+    border: 2px solid #f97316;
+    color: #f97316;
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-outline:hover {
+    background: #f97316;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+  }
+  
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  .geometric-line {
+    stroke: #f97316;
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(249, 115, 22, 0.6));
+  }
+  
+  .draw-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 2s ease-out forwards;
+  }
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Custom selection colors */
+::selection {
+  background: #f97316;
+  color: white;
+}
+
+::-moz-selection {
+  background: #f97316;
+  color: white;
+}

@@ -1,22 +1,72 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Prince Okeke - Full Stack Developer, UI/UX Designer & Freelancer. Specializing in creative web solutions and modern design." } = Astro.props;
+
+// Import global styles
+import '../styles/global-clean.css';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		
+		<!-- SEO Meta Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Preload custom font -->
+		<link rel="preload" href="/fonts/VAGRoundedStd-Black.ttf" as="font" type="font/ttf" crossorigin />
 	</head>
 	<body>
-		<slot />
+		<!-- Geometric background elements inspired by your image -->
+		<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+			<svg class="absolute top-0 left-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg">
+				<!-- Animated geometric lines -->
+				<line x1="0" y1="50%" x2="100%" y2="50%" class="geometric-line draw-line" />
+				<line x1="20%" y1="0" x2="20%" y2="100%" class="geometric-line draw-line" style="animation-delay: 0.5s;" />
+			</svg>
+		</div>
+		
+		<div class="relative z-10">
+			<slot />
+		</div>
+		
+		<!-- Global JavaScript for animations -->
+		<script>
+			// Intersection Observer for scroll animations
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('in-view');
+					}
+				});
+			}, observerOptions);
+
+			// Observe all elements with animate-on-scroll class
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelectorAll('.animate-on-scroll').forEach(el => {
+					observer.observe(el);
+				});
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

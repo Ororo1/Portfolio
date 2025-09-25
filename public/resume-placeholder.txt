@@ -1,0 +1,2 @@
+# Resume Placeholder
+Add your resume.pdf file to this public folder so it can be downloaded from the site.

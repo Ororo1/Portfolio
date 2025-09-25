@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Test</title>
+    <style>
+        @font-face {
+            font-family: 'GlacialIndifference';
+            src: url('/fonts/glacial-indifference.regular.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        body {
+            font-family: 'GlacialIndifference', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            padding: 2rem;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Test: Glacial Indifference</h1>
+    <p>This text should be rendered in Glacial Indifference font.</p>
+    <p>If you see this in Arial or system font, then Glacial Indifference is not loading.</p>
+    <p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+    <p>abcdefghijklmnopqrstuvwxyz</p>
+    <p>1234567890</p>
+</body>
+</html>
