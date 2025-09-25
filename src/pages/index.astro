@@ -25,9 +25,10 @@ import ProjectCard from '../components/ProjectCard.astro';
 	<main id="main-content" role="main">
 		<!-- Hero Section with Geometric Design -->
 		<section class="hero-section" aria-labelledby="main-heading" style="height: 77vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: visible;">
-			<!-- Portfolio text at top right -->
-			<div style="position: absolute; top: 2rem; right: 2rem; color: #f97316; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em;">
-				PORTFOL<span id="portfolio-i">I</span>O
+			<!-- Year + Portfolio text at top right -->
+			<div style="position: absolute; top: 1.5rem; right: 2rem; display: flex; flex-direction: column; align-items: flex-end; gap: 0.15rem;">
+				<span class="hero-year" style="color: #fff; font-weight: 800; letter-spacing: 0.12em; font-size: 0.9rem;">2025</span>
+				<span class="hero-portfolio" style="color: #f97316; font-size: 1rem; font-weight: 600; letter-spacing: 0.1em;">PORTFOL<span id="portfolio-i">I</span>O</span>
 			</div>
 			
 			<!-- Animated connecting line from I to E -->
@@ -299,7 +300,8 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 		<!-- Portfolio Gallery Section (after Skills section) -->
 		<section id="gallery" class="section gallery-section">
-			<h2 class="section-title fade-in-up" style="text-align: center; font-weight: 900; margin-bottom: 1rem;">PORTFOLIO <span class="accent-text">GALLERY</span></h2>
+			<h2 class="section-title fade-in-up" style="text-align: center; font-weight: 900; margin-bottom: 0.25rem;">PORTFOLIO <span class="accent-text">GALLERY</span></h2>
+			<p class="gallery-subtitle fade-in-up" style="text-align: center; color: rgba(255,255,255,0.75); margin: 0 0 0.9rem 0; font-weight: 500;">A summary of projects I've worked on this year</p>
 			<ul class="gallery-grid fade-in-up" style="animation-delay: 0.15s;">
 				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (14).jpg" alt="Portfolio Work 14" loading="lazy" /></div></li>
 				<li class="gallery-card"><div class="gallery-link"><img src="/images/gallery/work (6).jpg" alt="Portfolio Work 6" loading="lazy" /></div></li>
